@@ -83,7 +83,7 @@ artefacts.forEach((artefact, index) => {
   container.className = 'artefact-item';
   container.style.marginBottom = '20px';
 
-  const viewer = document.createElement('div');
+   const viewer = document.createElement('div');
   docMount.appendChild(container);
   container.appendChild(viewer);
 
