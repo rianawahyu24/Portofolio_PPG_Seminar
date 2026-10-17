@@ -62,9 +62,42 @@
     accWrap.appendChild(el);
   });
 
-  document.getElementById('artefact-name').textContent = data.artefactName;
-  document.getElementById('analisis-content').innerHTML = `<p>${data.analysis}</p>`;
-  document.getElementById('praktis-content').innerHTML = `<p>${data.practical}</p>`;
+  
+
+const docMount = document.getElementById('doc-mount');
+
+const artefacts = data.artefacts || (
+  data.artefactUrl
+    ? [{
+        name: data.artefactName,
+        url: data.artefactUrl,
+        thumb: data.artefactThumb
+      }]
+    : []
+);
+
+docMount.innerHTML = '';
+
+artefacts.forEach((artefact, index) => {
+  const container = document.createElement('div');
+  container.className = 'artefact-item';
+  container.style.marginBottom = '20px';
+
+  const viewer = document.createElement('div');
+  docMount.appendChild(container);
+  container.appendChild(viewer);
+
+  renderDocViewer(viewer, {
+    name: artefact.name,
+    url: artefact.url,
+    thumb: artefact.thumb
+  });
+});
+
+
+document.getElementById('analisis-content').innerHTML = `<p>${data.analysis}</p>`;
+document.getElementById('praktis-content').innerHTML = `<p>${data.practical}</p>`;
+
 
   // Open first accordion panel by default (main.js handles further toggling)
   requestAnimationFrame(() => {

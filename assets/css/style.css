@@ -1665,3 +1665,87 @@ html, body{ overflow-x: hidden; }
 .identity-panel:hover {
   border-color: var(--dash-pink) !important;
 }
+
+/* ---------- Pratinjau dokumen inline (doc-viewer) ---------- */
+.doc-viewer{ max-width: 820px; }
+.doc-card{
+  display: grid; grid-template-columns: 170px 1fr; gap: 1.75rem; align-items: center;
+  background: var(--white); border-radius: var(--radius-md); padding: 1.5rem;
+  box-shadow: var(--shadow-card); border: 2px dashed rgba(63,91,75,.3);
+}
+.doc-paper{
+  position: relative; aspect-ratio: 1 / 1.414; background: #fff; border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(37,40,39,.12), 0 14px 28px -14px rgba(37,40,39,.35);
+  overflow: hidden; border: 1px solid rgba(37,40,39,.08);
+}
+.doc-paper img{ position:absolute; inset:0; width:100%; height:100%; object-fit: cover; object-position: top; z-index:1; }
+.doc-paper::after{ /* lipatan sudut */
+  content:""; position:absolute; top:0; right:0; z-index:2; width:26px; height:26px;
+  background: linear-gradient(225deg, var(--cream) 50%, rgba(37,40,39,.14) 50%);
+}
+.doc-lines{ position:absolute; inset: 22% 14% 10% 14%; display:flex; flex-direction:column; gap:9px; }
+.doc-lines i{ display:block; height:5px; border-radius:3px; background: var(--sage-pale); }
+.doc-lines i:nth-child(3n){ width: 70%; }
+.doc-badge{
+  position:absolute; left:8px; bottom:8px; z-index:3; background: #c0392b; color:#fff;
+  font: 700 .62rem/1 var(--font-body); letter-spacing:.08em; padding:.28rem .45rem; border-radius:4px;
+}
+.doc-name{ font-family: var(--font-display); font-weight:600; color: var(--sage-deep); word-break: break-word; margin: .15rem 0 .35rem; }
+.doc-sub{ font-size:.88rem; margin-bottom: 1rem; }
+.doc-actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+.doc-card.is-empty .doc-paper{ opacity:.7; filter: grayscale(.4); }
+.doc-preview{
+  margin-top: 1rem; background: var(--white); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift); overflow: hidden; border: 1px solid rgba(63,91,75,.15);
+  animation: docOpen .35s ease;
+}
+.doc-preview[hidden]{ display:none; }
+@keyframes docOpen{ from{ opacity:0; transform: translateY(-8px);} to{ opacity:1; transform:none; } }
+.doc-toolbar{
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  padding:.65rem 1rem; background: var(--sage-deep); color: var(--cream); font-size:.85rem;
+}
+.doc-tname{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.doc-close{ background:transparent; border:1px solid rgba(248,245,236,.5); color:inherit; border-radius:999px; padding:.25rem .8rem; cursor:pointer; font: inherit; }
+.doc-close:hover{ background: rgba(248,245,236,.15); }
+.doc-frame iframe{ display:block; width:100%; height: min(80vh, 760px); border:0; background:#eee; }
+.doc-note{ font-size:.78rem; padding:.55rem 1rem; text-align:center; }
+@media (max-width: 640px){
+  .doc-card{ grid-template-columns: 1fr; text-align:center; }
+  .doc-paper{ max-width: 150px; margin-inline:auto; }
+  .doc-actions{ justify-content:center; }
+}
+
+/* ---------- Identifikasi diri: kartu identitas, visi-misi, kompetensi ---------- */
+.idcard{ display:grid; grid-template-columns: 240px 1fr; gap: 2rem; max-width: 880px; align-items:start; }
+.idcard-photo{ aspect-ratio: 3/4; border-radius: var(--radius-md); overflow:hidden; background: var(--sage-pale); box-shadow: var(--shadow-card); }
+.idcard-photo img{ width:100%; height:100%; object-fit:cover; object-position: top; display:block; }
+.idtable{ width:100%; border-collapse: collapse; font-size:.95rem; }
+.idtable th, .idtable td{ text-align:left; padding:.55rem .25rem; border-bottom:1px solid rgba(63,91,75,.14); vertical-align: top; }
+.idtable th{ width: 38%; font-weight:600; color: var(--sage-deep); }
+.idtable td::before{ content: ": "; color: var(--rose); }
+@media (max-width: 700px){ .idcard{ grid-template-columns: 1fr; } .idcard-photo{ max-width: 220px; margin-inline:auto; } }
+
+.vm-grid{ display:grid; grid-template-columns: 1fr; gap:1.25rem; max-width: 880px; }
+.vm-source{ display:flex; align-items:center; gap:.75rem; font-size:.85rem; color: rgba(37,40,39,.7); margin-bottom: 1rem; }
+.vm-source img{ height: 38px; width:auto; }
+.vm-quote{ font-family: var(--font-display); font-size:1.15rem; line-height:1.55; color: var(--sage-deep); border-left:4px solid var(--rose); padding-left:1.1rem; }
+.misi-list{ padding-left:0; list-style:none; counter-reset: misi; display:grid; gap:.8rem; }
+.misi-list li{ counter-increment: misi; display:grid; grid-template-columns: 2rem 1fr; gap:.7rem; }
+.misi-list li::before{ content: counter(misi); width:2rem; height:2rem; border-radius:50%; background: var(--sage-pale); color: var(--sage-deep); font-weight:700; display:flex; align-items:center; justify-content:center; }
+
+.komp-list{ display:grid; gap:1.25rem; max-width:880px; }
+.komp-card h3{ display:flex; align-items:center; gap:.6rem; font-size:1.15rem; margin-bottom:.75rem; }
+.komp-card ul{ margin:0; padding-left:1.15rem; display:grid; gap:.55rem; }
+.komp-card li::marker{ color: var(--rose); }
+.komp-chip{ display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:.18rem .55rem; border-radius:999px; background: var(--sage-pale); color: var(--sage-deep); vertical-align: middle; }
+.komp-chip.pedagogik{ background:#DCE4D5; } .komp-chip.kepribadian{ background:#F1C8C7; color:#96393c; }
+.komp-chip.sosial{ background:#E7D8BE; color:#6b4f22; } .komp-chip.profesional{ background:#A8B9A3; }
+.step-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:1.25rem; }
+@media (max-width: 700px){ .step-grid{ grid-template-columns: 1fr; } }
+.step-card .komp-chip{ margin-bottom:.6rem; }
+.step-card ul{ padding-left:1.1rem; margin:.5rem 0 0; display:grid; gap:.4rem; font-size:.93rem; }
+.lede-block{ max-width:880px; margin-bottom:1.25rem; }
+
+/* penekanan poin 4C */
+.accordion-panel-inner b{ color: var(--sage-deep); font-weight:700; background: linear-gradient(transparent 62%, rgba(217,143,145,.32) 62%); padding-inline:1px; }
