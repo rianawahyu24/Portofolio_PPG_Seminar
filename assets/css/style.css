@@ -1749,3 +1749,42 @@ html, body{ overflow-x: hidden; }
 
 /* penekanan poin 4C */
 .accordion-panel-inner b{ color: var(--sage-deep); font-weight:700; background: linear-gradient(transparent 62%, rgba(217,143,145,.32) 62%); padding-inline:1px; }
+
+/* ---------- Responsif mobile (tambahan) ---------- */
+.card p + p, .card-pad p + p{ margin-top: .9rem; }
+.split-grid{ grid-template-columns: 1fr 1.2fr; gap: 1.5rem; align-items: start; }
+.split-photo{ aspect-ratio: 4/5; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+img, video, iframe{ max-width: 100%; }
+
+@media (max-width: 780px){
+  .split-grid{ grid-template-columns: 1fr; }
+  .split-photo{ aspect-ratio: 16/10; }
+  .artefact-frame[style*="aspect-ratio"]{ aspect-ratio: auto !important; min-height: 180px; }
+}
+@media (max-width: 640px){
+  :root{ --radius-lg: 22px; }
+  .card-pad{ padding: 1.15rem; }
+  .section-alt .container[style]{ padding-inline: 1rem !important; }
+  .hero-header h1{ font-size: clamp(1.7rem, 8vw, 2.2rem); line-height: 1.2; }
+  .section-head h2{ font-size: clamp(1.3rem, 6vw, 1.7rem); }
+  .btn{ min-height: 44px; }                 /* target sentuh nyaman */
+  .accordion-trigger{ min-height: 52px; }
+  .accordion-trigger .a-sub{ display: none; } /* judul 4C tidak berdesakan */
+  .tabs{ overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: .25rem; }
+  .tabs::-webkit-scrollbar{ display: none; }
+  .tab-btn{ white-space: nowrap; flex: 0 0 auto; }
+  .nav-links a, .footer-nav a{ padding-block: .55rem; }
+
+  /* identitas: label di atas nilai */
+  .idtable, .idtable tbody, .idtable tr, .idtable th, .idtable td{ display: block; width: 100%; }
+  .idtable tr{ padding: .5rem 0; border-bottom: 1px solid rgba(63,91,75,.14); }
+  .idtable th, .idtable td{ border: 0; padding: 0; }
+  .idtable th{ font-size: .75rem; letter-spacing: .05em; text-transform: uppercase; color: var(--rose); }
+  .idtable td::before{ content: none; }
+
+  .komp-card h3{ flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .komp-card li .komp-chip{ display: table; margin-bottom: .25rem; }
+  .vm-quote{ font-size: 1rem; }
+  .doc-frame iframe{ height: 70vh; }
+  .doc-actions .btn{ flex: 1 1 130px; justify-content: center; }
+}
