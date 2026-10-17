@@ -1753,8 +1753,190 @@ html, body{ overflow-x: hidden; }
 /* ---------- Responsif mobile (tambahan) ---------- */
 .card p + p, .card-pad p + p{ margin-top: .9rem; }
 .split-grid{ grid-template-columns: 1fr 1.2fr; gap: 1.5rem; align-items: start; }
-.split-photo{ aspect-ratio: 4/5; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+
+/* Kotak dokumentasi foto */
+.split-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+}
+
+/* Foto di dalam kotak */
+.split-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Keterangan foto */
+.split-photo p {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+}
+
+/* Kalau layar kecil, tetap dua foto berdampingan */
+@media (max-width: 780px) {
+  .split-photo {
+    aspect-ratio: 4 / 3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Grid dokumentasi */
+.documentation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* Kartu setiap foto */
+.documentation-card {
+  position: relative;
+  min-width: 0;
+  padding: 16px;
+  border: 2px dashed;
+  border-radius: 24px;
+  background: #F8F5EC;
+  box-sizing: border-box;
+}
+
+/* Border selang-seling */
+.documentation-card.pink {
+  border-color: #D9A5A5;
+}
+
+.documentation-card.green {
+  border-color: #8CA391;
+}
+
+/* Foto dengan rasio tetap 4:3 */
+.documentation-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Judul dokumentasi */
+.documentation-card p {
+  margin: 12px 0 2px;
+  text-align: center;
+  color: #3F5B4B;
+  font-size: 0.95rem;
+}
+
+/* Label kecil di pojok kartu */
+.photo-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: white;
+  color: #3F5B4B;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Tampilan layar kecil */
+@media (max-width: 600px) {
+  .documentation-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+
+.gallery-varied {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 180px 180px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.gallery-varied .artefact-frame {
+  position: relative;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  padding: 40px 14px 12px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+/* Foto besar kiri */
+.gallery-varied .g-large {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+/* Dua foto kecil di kanan atas */
+.gallery-varied .g-small:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gallery-varied .g-small:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Foto lebar di kanan bawah */
+.gallery-varied .g-medium {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+/* Foto tidak mengubah ukuran kotak */
+.gallery-varied img {
+  display: block;
+  width: 100%;
+  height: auto;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Label dokumentasi */
+.gallery-varied .a-tag {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 2;
+}
+
+/* Judul foto */
+.gallery-varied .photo-title {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #3f5b4b;
+  flex-shrink: 0;
+}
+
+
 img, video, iframe{ max-width: 100%; }
+
 
 @media (max-width: 780px){
   .split-grid{ grid-template-columns: 1fr; }
