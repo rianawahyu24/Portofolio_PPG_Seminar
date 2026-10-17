@@ -1788,3 +1788,7 @@ img, video, iframe{ max-width: 100%; }
   .doc-frame iframe{ height: 70vh; }
   .doc-actions .btn{ flex: 1 1 130px; justify-content: center; }
 }
+.komp-list .artefact-frame.split-photo{ aspect-ratio: 16/9; }
+.step-card h3{ margin-bottom: .6rem; }
+.step-card ul + p{ margin-top: .9rem; }
+.step-card p.muted + ul{ margin-top: .35rem; }
