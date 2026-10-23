@@ -41,9 +41,62 @@
 
     <div class="hero-header" style="text-align:left;padding-top:0;">
       <p class="kicker">04 — Karya Inovasi Pendidikan</p>
-      <h1 id="karya-title">Nama Karya Inovasi</h1>
-      <p class="lede" style="margin-inline:0;">Ganti judul dan setiap isian pada halaman ini dengan detail karya inovasi pembelajaran yang sudah dikembangkan.</p>
+      <h1 id="karya-title">Website Interaktif Berbasis Reciprocal Teaching untuk Meningkatkan Kemandirian Belajar Murid</h1>
+      <p class="lede" style="margin-inline:0;">Media pembelajaran Informatika yang memadukan model Reciprocal Teaching dengan simulasi interaktif agar murid terlatih belajar secara mandiri.</p>
     </div>
+
+    
+    <!-- Link Website Karya Inovasi -->
+    <section class="section-tight reveal" id="link-karya">
+      <div class="card card-pad karya-link-card">
+        <div class="karya-link-text">
+          <p class="eyebrow">Akses Langsung</p>
+          <h2>Website Karya Inovasi</h2>
+          <p class="muted">
+            Buka website pembelajaran interaktif secara langsung di tab baru.
+          </p>
+          <p class="karya-link-url" id="karya-link-display">
+            https://ipo-simulator-beta.vercel.app/
+          </p>
+        </div>
+
+        <div class="karya-link-actions">
+          <a
+            id="karya-link-btn"
+            href="https://ipo-simulator-beta.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary magnetic"
+          >
+            Kunjungi Website Karya
+            <svg width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7M8 7h9v9"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function(){
+        var b = document.getElementById('karya-link-btn');
+        var d = document.getElementById('karya-link-display');
+        var h = b.getAttribute('href');
+
+        if (!h || h === '#') {
+          b.classList.add('is-disabled');
+          b.setAttribute('aria-disabled', 'true');
+          b.addEventListener('click', function(e) {
+            e.preventDefault();
+          });
+        } else {
+          d.textContent = h;
+        }
+      })();
+    </script>
+
 
     <!-- Identitas Karya -->
     <section class="section-tight reveal">
@@ -51,31 +104,37 @@
         <div>
           <p class="eyebrow">Identitas Karya</p>
           <div class="identity-info">
-            <div class="id-row"><b>Nama Karya</b><span>Isi nama karya inovasi</span></div>
-            <div class="id-row"><b>Sasaran</b><span>Isi sasaran pengguna, mis. peserta didik kelas X Informatika</span></div>
+            <div class="id-row"><b>Nama Karya</b><span>Website Pembelajaran Interaktif Berbasis Reciprocal Teaching untuk Meningkatkan Kemandirian Belajar Murid dalam Informatika</span></div>
+            <div class="id-row"><b>Sasaran</b><span>Murid kelas X SMA pada pembelajaran Informatika, khususnya materi mekanisme kerja komputer dan Input–Process–Storage–Output (IPO)</span></div>
           </div>
         </div>
         <div>
           <p class="eyebrow">Kategori</p>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-            <span class="tag">Media Pembelajaran</span>
+            <span class="tag">Media Pembelajaran Informatika</span>
             <span class="tag tag-rose">Informatika</span>
           </div>
         </div>
       </div>
     </section>
 
+    
     <!-- Foto Karya -->
     <section class="reveal">
       <div class="section-head">
         <p class="eyebrow">Tampilan Karya</p>
         <h2>Foto Karya</h2>
       </div>
-      <div class="artefact-frame" style="max-width:900px;aspect-ratio:16/8;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <p>Letakkan foto atau tangkapan layar karya di sini</p>
+
+      <div class="artefact-frame" style="max-width:900px;margin:0 auto;overflow:hidden;">
+        <img
+          src="assets/img/IPO.png"
+          alt="Dokumentasi karya"
+          style="width:100%;height:auto;display:block;object-fit:contain;"
+        >
       </div>
     </section>
+
 
     <!-- Latar Belakang -->
     <section class="reveal">
@@ -84,7 +143,7 @@
         <h2>Latar Belakang</h2>
       </div>
       <div class="card card-pad" style="max-width:820px;">
-        <p class="muted">Jelaskan kondisi atau kebutuhan pembelajaran yang mendorong terciptanya karya ini — misalnya kesulitan peserta didik yang teramati selama PPL, atau kesenjangan yang ditemukan lewat asesmen awal.</p>
+        <p class="muted hl-text">Pengembangan karya ini berangkat dari permasalahan <b>kemandirian belajar</b> yang ditemukan dalam pembelajaran Informatika. Sebagian murid masih <b>bergantung pada arahan guru</b> ketika mengerjakan tugas, <b>ragu mencoba secara mandiri</b>, dan <b>belum optimal mengeksplorasi alternatif</b> ketika menghadapi kesulitan. Kondisi tersebut menjadi dasar pengembangan tindakan pembelajaran melalui <b>model Reciprocal Teaching</b>, yang didukung <b>media digital interaktif</b> untuk membantu murid membangun pemahaman secara lebih terstruktur.</p>
       </div>
     </section>
 
@@ -93,11 +152,11 @@
       <div class="grid grid-2">
         <div class="card card-pad">
           <p class="eyebrow">Sasaran</p>
-          <p class="muted">Sebutkan kelas, jenjang, atau kelompok peserta didik yang dituju.</p>
+          <p class="muted hl-text">Murid kelas X SMA yang mengikuti pembelajaran Informatika, khususnya materi <b>mekanisme kerja komputer dan simulasi IPO</b>.</p>
         </div>
         <div class="card card-pad">
           <p class="eyebrow">Tujuan</p>
-          <p class="muted">Jelaskan capaian yang ingin diperoleh peserta didik melalui karya ini.</p>
+          <p class="muted hl-text">Mengembangkan <b>media pembelajaran berbasis website yang mendukung penerapan Reciprocal Teaching</b> serta memberikan kesempatan kepada murid untuk <b>melatih kemandirian</b> melalui kegiatan membuat prediksi, menyusun pertanyaan, mengklarifikasi pemahaman, melakukan simulasi, menganalisis permasalahan, menyimpulkan materi, dan merefleksikan proses belajarnya.</p>
         </div>
       </div>
     </section>
@@ -112,11 +171,20 @@
         <div class="grid grid-2">
           <div class="card card-pad">
             <p class="eyebrow" style="color:var(--rose);">Masalah</p>
-            <p class="muted">Uraikan masalah pembelajaran spesifik yang ingin diselesaikan.</p>
+            <ul class="muted hl-text" style="padding-left:1.1rem;margin:0;display:grid;gap:.4rem;list-style:disc;">
+              <li>Murid cenderung <b>bergantung pada bantuan dan arahan guru</b> ketika mengerjakan tugas Informatika.</li>
+              <li>Murid <b>kesulitan membayangkan proses yang terjadi di dalam komputer</b> karena mekanisme kerja dan hubungan antarkomponen tidak dapat diamati secara langsung.</li>
+              <li>Murid membutuhkan <b>media visual dan interaktif</b> untuk membantu memahami alur Input, Process, Storage, dan Output (IPO) secara lebih konkret.</li>
+              <li>Murid belum terbiasa <b>mencoba menyelesaikan permasalahan secara mandiri</b> sebelum meminta bantuan.</li>
+              <li>Murid masih <b>ragu mengeksplorasi alternatif solusi</b> ketika menghadapi kesulitan.</li>
+              <li>Murid belum optimal <b>memanfaatkan sumber belajar dan diskusi dengan teman</b> untuk mengklarifikasi pemahaman.</li>
+            </ul>
           </div>
           <div class="card card-pad">
             <p class="eyebrow">Solusi / Inovasi</p>
-            <p class="muted">Uraikan bentuk solusi atau inovasi yang dikembangkan, termasuk fitur atau pendekatan utamanya.</p>
+            <p class="muted hl-text">Mengembangkan <b>website pembelajaran interaktif</b> yang mengintegrasikan model Reciprocal Teaching melalui <b>empat strategi utama</b>, yaitu Predicting, Questioning, Clarifying, dan Summarizing.</p>
+            <p class="muted hl-text" style="margin-top:.75rem;">Website berfokus pada materi <b>mekanisme kerja komputer</b> melalui <b>simulasi dan analisis Input–Process–Storage–Output (IPO)</b>. Fitur pembelajaran meliputi kegiatan prediksi berdasarkan permasalahan kontekstual, simulasi pengelompokan komponen IPO, analisis permasalahan komputer, penyusunan pertanyaan, klarifikasi melalui sumber belajar dan diskusi, perancangan simulasi IPO, serta refleksi kemandirian belajar.</p>
+            <p class="muted hl-text" style="margin-top:.75rem;">Website dirancang agar murid tidak hanya mempelajari konsep, tetapi juga memperoleh kesempatan untuk <b>mencoba, menganalisis, mencari informasi, dan menyusun pemahaman secara mandiri</b> dengan bantuan yang sesuai kebutuhan.</p>
           </div>
         </div>
       </div>
@@ -131,15 +199,22 @@
       <div class="grid grid-3">
         <div class="card card-pad">
           <p class="eyebrow">Bagi Peserta Didik</p>
-          <p class="muted">Isi manfaat langsung bagi peserta didik.</p>
+          <p class="muted hl-text">Media ini dirancang untuk memberikan ruang bagi murid untuk <b>mencoba, mencari informasi, mengajukan pertanyaan, menganalisis permasalahan, mengevaluasi hasil, dan menyusun pemahaman</b> dengan lebih mandiri. Perkembangan dampaknya ditelaah melalui observasi, angket, refleksi, dan hasil belajar.</p>
         </div>
         <div class="card card-pad">
           <p class="eyebrow">Bagi Guru</p>
-          <p class="muted">Isi manfaat bagi proses mengajar.</p>
+          <p class="muted hl-text">Media membantu guru menyusun <b>aktivitas pembelajaran yang terstruktur</b>, memfasilitasi proses belajar murid, serta <b>mengamati perilaku kemandirian secara lebih sistematis</b> sebagai dasar refleksi dan perbaikan pembelajaran.</p>
         </div>
         <div class="card card-pad">
           <p class="eyebrow">Luaran</p>
-          <p class="muted">Sebutkan bentuk luaran konkret, mis. modul, aplikasi, atau media interaktif.</p>
+          <ol class="muted hl-text" style="padding-left:1.1rem;margin:0;display:grid;gap:.4rem;">
+            <li><b>Website pembelajaran interaktif</b> materi mekanisme kerja komputer dan simulasi IPO.</li>
+            <li>Fitur <b>simulasi pengelompokan komponen</b> berdasarkan tahap Input, Process, Storage, dan Output.</li>
+            <li>Fitur <b>analisis permasalahan komputer</b> berdasarkan hubungan antarkomponen IPO.</li>
+            <li>Aktivitas <b>penyusunan pertanyaan, klarifikasi, dan rangkuman</b> berbasis Reciprocal Teaching.</li>
+            <li>Fitur <b>refleksi kemandirian belajar</b>.</li>
+            <li><b>LKPD dan instrumen pendukung</b> evaluasi pembelajaran.</li>
+          </ol>
         </div>
       </div>
     </section>

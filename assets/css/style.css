@@ -1748,7 +1748,7 @@ html, body{ overflow-x: hidden; }
 .lede-block{ max-width:880px; margin-bottom:1.25rem; }
 
 /* penekanan poin 4C */
-.accordion-panel-inner b{ color: var(--sage-deep); font-weight:700; background: linear-gradient(transparent 62%, rgba(217,143,145,.32) 62%); padding-inline:1px; }
+.accordion-panel-inner b, .hl-text b, #analisis-content b, #praktis-content b, .lede-block b, .komp-card li b, .step-card li b{ color: var(--sage-deep); font-weight:700; background: linear-gradient(transparent 62%, rgba(217,143,145,.32) 62%); padding-inline:1px; }
 
 /* ---------- Responsif mobile (tambahan) ---------- */
 .card p + p, .card-pad p + p{ margin-top: .9rem; }
@@ -1974,3 +1974,73 @@ img, video, iframe{ max-width: 100%; }
 .step-card h3{ margin-bottom: .6rem; }
 .step-card ul + p{ margin-top: .9rem; }
 .step-card p.muted + ul{ margin-top: .35rem; }
+
+
+
+/* Kartu pembimbing dan penguji */
+.people-grid {
+  align-items: stretch;
+  gap: 20px;
+}
+
+.people-grid .people-card {
+  min-width: 0;
+  padding: 24px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Ukuran foto seragam */
+.people-photo {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+/* Nama tetap rapi */
+.people-grid .name {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  margin-bottom: 0;
+}
+
+/* Nama Pak Eka sedikit lebih kecil */
+.people-grid .name-penguji {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+  .people-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .people-photo {
+    max-width: 160px;
+  }
+
+  .people-grid .name-penguji {
+    font-size: 0.9rem;
+  }
+}
+
+/* Penanda poin pada teks berhighlight */
+.hl-text li::marker{ color: var(--rose); font-weight:700; }
+
+/* Link Website Karya Inovasi */
+.karya-link-card{ max-width:900px; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; border-left:4px solid var(--sage-deep); }
+.karya-link-text h2{ font-size:1.4rem; margin:.15rem 0 .35rem; }
+.karya-link-url{ margin-top:.6rem; font-size:.85rem; color:var(--sage-deep); font-weight:600; word-break:break-all; }
+.karya-link-actions .btn.is-disabled{ opacity:.5; cursor:not-allowed; pointer-events:auto; }
+.karya-link-actions .btn.is-disabled:hover{ transform:none; box-shadow:none; }
+@media (max-width:640px){ .karya-link-actions, .karya-link-actions .btn{ width:100%; justify-content:center; } }
